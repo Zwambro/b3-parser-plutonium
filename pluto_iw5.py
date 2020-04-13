@@ -34,9 +34,9 @@ import re
 
 from threading import Timer
 
-class Pluto_Iw5Parser(b3.parsers.cod8.Cod8Parser):
+class Iw5Parser(b3.parsers.cod8.Cod8Parser):
 
-    gameName = 'PlutoIW5'
+    gameName = 'Iw5'
     _botPrefix = "FFFFFFFF000B07"
     _guidLength = 15
     _line_length = 43
@@ -44,10 +44,10 @@ class Pluto_Iw5Parser(b3.parsers.cod8.Cod8Parser):
         'message': 'tell %(cid)s "%(message)s"',
         'say': 'say "%(message)s"',
         'set': 'set %(name)s "%(value)s"',
-        'kick': 'dropClient %(cid)s "%(reason)s"',
-        'ban': 'dropClient %(cid)s "%(reason)s"',
+        'kick': 'dropclient %(cid)s "%(reason)s". ^3Unban appeal at ^1@discord.gg/MSj6RbW^7',
+        'ban': 'dropclient %(cid)s "%(reason)s". ^3Unban appeal at ^1@discord.gg/MSj6RbW^7',
         'unban': 'unban "%(name)s"',
-        'tempban': 'dropClient %(cid)s "%(reason)s"'
+        'tempban': 'dropClient %(cid)s "%(reason)s". ^3Unban appeal at ^1@discord.gg/MSj6RbW^7'
     }
     
     _reMapNameFromStatus = re.compile(r'^map:\s+(?P<map>[a-z0-9_-]+).*$', re.IGNORECASE)

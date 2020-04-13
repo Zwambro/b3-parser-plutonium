@@ -29,14 +29,14 @@
 __author__ = 'Xerxes'
 __version__ = '0.7'
 
-import b3.parsers.pluto_iw5
+import b3.parsers.iw5
 import re
 
 from threading import Timer
 
-class Pluto_T6Parser(b3.parsers.pluto_iw5.Pluto_Iw5Parser):
+class T6Parser(b3.parsers.iw5.Iw5Parser):
 
-    gameName = 'PlutoT6'
+    gameName = 't6'
     _botGuid = "0"
     _guidLength = 1
     _line_length = 72
@@ -44,10 +44,10 @@ class Pluto_T6Parser(b3.parsers.pluto_iw5.Pluto_Iw5Parser):
         'message': 'tell %(cid)s "%(message)s"',
         'say': 'say "%(message)s"',
         'set': 'set %(name)s "%(value)s"',
-        'kick': 'clientkick_for_reason %(cid)s "%(reason)s"',
-        'ban': 'clientkick_for_reason %(cid)s "%(reason)s"',
+        'kick': 'clientkick_for_reason %(cid)s "%(reason)s". ^3Unban appeal at ^1@discord.gg/MSj6RbW^7',
+        'ban': 'clientkick_for_reason %(cid)s "%(reason)s". ^3Unban appeal at ^1@discord.gg/MSj6RbW^7',
         'unban': 'unban "%(name)s"',
-        'tempban': 'clientkick_for_reason %(cid)s "%(reason)s"'
+        'tempban': 'clientkick_for_reason %(cid)s "%(reason)s. ^3Unban appeal at ^1@discord.gg/MSj6RbW^7"'
     }
     
     _reCvar = re.compile(r'^((?P<cvar>[a-z][a-z0-9_]*)).*?(is).*?(\")(?P<value>.*)(\")', re.IGNORECASE)
@@ -63,7 +63,7 @@ class Pluto_T6Parser(b3.parsers.pluto_iw5.Pluto_Iw5Parser):
         """
         Called after the parser is created before run().
         """
-        b3.parsers.pluto_iw5.Pluto_Iw5Parser.startup(self)
+        b3.parsers.iw5.Iw5Parser.startup(self)
         #Add our own expressions to the line formats.
         #Kill + Damage
         self._lineFormats = (
