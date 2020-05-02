@@ -34,9 +34,9 @@ import re
 
 from threading import Timer
 
-class Pluto_T6Parser(b3.parsers.pluto_iw5.Pluto_Iw5Parser):
+class T6Parser(b3.parsers.pluto_iw5.Pluto_Iw5Parser):
 
-    gameName = 'PlutoT6'
+    gameName = 't6'
     _botGuid = "0"
     _guidLength = 1
     _line_length = 72
