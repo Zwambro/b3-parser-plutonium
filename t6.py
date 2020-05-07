@@ -82,7 +82,7 @@ class T6Parser(b3.parsers.pluto_iw5.Pluto_Iw5Parser):
         codguid = match.group('guid')
         cid = match.group('cid')
         name = match.group('name')
-        self.verbose2('Client Joining: %s: %s [%s]' % (name, codguid,cid))
+        self.verbose2('Client Joining: %s: %s [%s]' % (name, codguid, cid))
         if len(codguid) < self._guidLength:
             # invalid guid
             self.verbose2('Invalid GUID: %s. GUID length set to %s' % (codguid, self._guidLength))
